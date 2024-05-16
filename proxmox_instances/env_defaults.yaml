@@ -1,0 +1,20 @@
+# Proxmox API URL
+pm_api_url: "https://192.168.1.10:8006/api2/json"
+
+# Images
+ct_def_template: "local:vztmpl/debian-12-standard_12.2-1_amd64.tar.zst"
+vm_def_template: "debian12-cloudinit"
+
+# Networking
+net_def_nic: "eth0"
+net_def_bridge: "vmbr0"
+net_def_gateway: "192.168.1.1"
+net_def_cidr: "21"
+net_def_ipv6_conf: "auto"
+
+# Storage
+prox_def_storage: "instances"
+
+ssh_key_paths:
+  - /home/postcert/.ssh/id_ed25519.pub
+  - /home/postcert/.ssh/homelab.pub

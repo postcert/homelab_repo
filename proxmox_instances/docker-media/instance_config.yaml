@@ -1,0 +1,33 @@
+deployment_name: "docker-media"
+instances:
+  - name: docker-media
+    target_node: postserv
+
+    cores: 8
+    memory: 32768
+    disk_size: "128G"
+
+    address: "192.168.2.20"
+
+    mountpoints:
+    - key: "1"
+      slot: 1
+      storage: "/shuck/nfsdocker"
+      volume: "/shuck/nfsdocker"
+      mp: "/nfsdocker"
+      size: "0G"
+
+    - key: "2"
+      slot: 2
+      storage: "/shuck/media"
+      volume: "/shuck/media"
+      mp: "/media"
+      size: "0G"
+      
+
+start:
+  on_create: true
+  on_boot: true
+
+features:
+  nesting: true

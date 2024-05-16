@@ -1,0 +1,5 @@
+---
+- name: Install Docker
+  hosts: docker-media
+  roles:
+    - geerlingguy.docker

@@ -1,0 +1,25 @@
+---
+- name: Deploy AdGuard Home
+  hosts: adguard
+  become: true
+  vars:
+    adguard_home_archive: "AdGuardHome_linux_amd64.tar.gz"
+    adguard_home_download_url: "https://static.adtidy.org/adguardhome/release/{{ adguard_home_archive }}"
+
+    adguard_home_base_path: /opt/adguard_home
+    adguard_home_user: root
+
+    adguard_home_path: "{{ adguard_home_base_path }}/AdGuardHome"
+    adguard_home_executable: "{{ adguard_home_path }}/AdGuardHome"
+    adguard_home_group: "{{ adguard_home_user }}"
+    adguard_home_host: "0.0.0.0"
+
+    adguard_home_tmp_path: /tmp/
+  tasks:
+  - include_tasks: install_adguard.yml
+
+  handlers:
+  - name: restart adguard-home
+    service:
+      name: adguard-home
+      state: restarted

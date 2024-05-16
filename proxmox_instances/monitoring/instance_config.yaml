@@ -1,0 +1,17 @@
+deployment_name: "monitoring"
+instances:
+  - name: monitoring
+    target_node: postserv
+
+    cores: 
+    memory: 8192
+    disk_size: "32G"
+
+    address: "dhcp"
+
+start:
+  on_create: true
+  on_boot: true
+
+features:
+  nesting: true

@@ -1,0 +1,17 @@
+deployment_name: "docker-media"
+instances:
+  - name: docker-media
+    target_node: postserv
+
+    cores: 2
+    memory: 2048
+    disk_size: "8G"
+
+    address: "192.168.1.5"
+
+start:
+  on_create: true
+  on_boot: true
+
+features:
+  nesting: true

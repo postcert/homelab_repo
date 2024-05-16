@@ -1,0 +1,10 @@
+---
+- name: Configure monitoring stack
+  hosts: monitoring
+  become: true  # Use sudo to ensure you have the necessary permissions
+  roles:
+    - role: grafana.grafana.grafana
+      vars:
+        grafana_security:
+          admin_user: "admin"
+          admin_password: "grafana_password"
