@@ -1,10 +1,5 @@
 ---
-- name: Configure monitoring stack
+- name: Monitoring Instance
   hosts: monitoring
-  become: true  # Use sudo to ensure you have the necessary permissions
   roles:
-    - role: grafana.grafana.grafana
-      vars:
-        grafana_security:
-          admin_user: "admin"
-          admin_password: "grafana_password"
+    - geerlingguy.docker # Switching to containers for new setup
